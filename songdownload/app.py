@@ -146,5 +146,5 @@ def download_song_api():
 def serve_song(filename):
     return send_from_directory(SONG_DIRECTORY, filename)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+port = int(os.environ.get("PORT", 4000))  # Render provides the PORT env variable
+    app.run(host="0.0.0.0", port=port, debug=True)
