@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Songs - TuneFlow</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Background */
+        body {
+            background: url('https://img.freepik.com/premium-photo/white-wireless-headphones-pink-yellow-background_77190-3031.jpg?ga=GA1.1.210557190.1741273500&semt=ais_hybrid') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff9a8b, #ff6a88);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #ff6a88;
+        }
+
+        /* Categories Section */
+        .categories {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            width: 100%;
+            position: fixed;
+            top: 50px;
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 8px 8px;
+            z-index: 999;
+        }
+
+        .categories a {
+            text-decoration: none;
+            color: #222;
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .categories a:hover {
+            background: #ff6a88;
+            color: white;
+        }
+
+        /* Search Section */
+        .search-container {
+            margin-top: 130px;
+            text-align: center;
+        }
+
+        .search-container h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff9a8b, #ff6a88);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .search-bar {
+            width: 50%;
+            padding: 12px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .search-button, .download-button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-button {
+            background: #ff6a88;
+        }
+
+        .search-button:hover {
+            background: #ff3b5f;
+            transform: scale(1.05);
+        }
+
+        .download-button {
+            background: #4CAF50;
+        }
+
+        .download-button:hover {
+            background: #388E3C;
+            transform: scale(1.05);
+        }
+
+        /* Additional Sections */
+        .extra-section {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #222;
+        }
+
+        /* Progress Bar Styles */
+            .progress-bar {
+                width: 50%;
+                height: 10px;
+                background: #ccc;
+                border-radius: 5px;
+                overflow: hidden;
+                margin: 10px auto;
+            }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #4CAF50;
+            transition: width 0.5s ease;
+        }
+
+        #audio-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+
+    </style>
+    <script>
+        function showPopup() {
+            alert("This song is available. You can download it now.");
+        }
+    </script>
+</head>
+<body>
+
+
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <!-- Progress Bar (Initially Hidden) -->
+        <div id="progress-container" style="display: none; margin-top: 20px;">
+            <p>Downloading...</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+       <!-- Audio Player Container (Initially Hidden) -->
+        <div id="audio-container" style="display: none; margin-top: 20px; text-align: center;">
+            <audio id="audio-player" controls>
+                <source id="audio-source" src="" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+
+        <h1>Find & Download Your Favorite Songs</h1>
+        <input type="text" class="search-bar" placeholder="Enter song name or Spotify link">
+        <div class="buttons-container">
+            <button class="search-button" onclick="showPopup()">Search</button>
+            <button class="download-button" onclick="startDownload()">Download</button>
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- Modify Download Button -->
+<!-- Ensure the download button calls startDownload() -->
+<!-- Modify Download Button -->
+<script>
+    function startDownload() {
+    let songName = document.querySelector(".search-bar").value;
+    if (!songName) {
+        alert("Please enter a song name!");
+        return;
+    }
+
+    document.getElementById("progress-container").style.display = "block"; // Show progress bar
+    let progress = 0;
+    let progressBar = document.getElementById("progress-fill");
+
+    // Simulate progress update every 500ms
+    let interval = setInterval(() => {
+        if (progress >= 100) {
+            clearInterval(interval);
+        } else {
+            progress += 10;
+            progressBar.style.width = progress + "%";
+        }
+    }, 500);
+
+    // Send request to Flask backend
+    fetch('/download-song', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ song_name: songName })
+    })
+    .then(response => response.json())
+    .then(data => {
+        clearInterval(interval); // Stop progress updates
+        document.getElementById("progress-container").style.display = "none"; // Hide progress bar
+
+        if (data.error) {
+            alert("Error: " + data.error);
+            return;
+        }
+
+        // Show and update the audio player BELOW the search bar
+        let audioContainer = document.getElementById("audio-container");
+        let audioPlayer = document.getElementById("audio-player");
+        let audioSource = document.getElementById("audio-source");
+
+        audioSource.src = window.location.origin + data.song_url;
+        audioPlayer.load(); // Reload audio source properly
+        audioContainer.style.display = "block"; // Show the player in the center
+        audioPlayer.play(); // Auto-play the song
+    })
+    .catch(error => {
+        clearInterval(interval);
+        document.getElementById("progress-container").style.display = "none";
+        alert("Error downloading song. Please try again!");
+    });
+}
+
+</script>
+
+</body>
+</html>
+

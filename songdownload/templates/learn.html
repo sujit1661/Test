@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More - TuneFlow</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Background */
+        body {
+            background: url('https://img.freepik.com/free-photo/colored-geometric-blue-yellow-paper-texture-background_24972-439.jpg?ga=GA1.1.210557190.1741273500&semt=ais_hybrid') no-repeat center center/cover;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff9a8b, #ff6a88);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #ff6a88;
+        }
+
+        /* Learn More Section */
+        .learn-more-container {
+            margin-top: 80px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            width: 90%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+        }
+
+        .learn-more-content {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .learn-more-container h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .learn-more-container p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .learn-more-list {
+            text-align: left;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        .learn-more-list li {
+            margin-bottom: 10px;
+        }
+
+        .learn-more-button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: #fff;
+            background: #ff6a88;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .learn-more-button:hover {
+            background: #ff3b5f;
+            transform: scale(1.05);
+        }
+
+        /* Video Section */
+        .learn-more-video {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .learn-more-video video {
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">TuneFlow</div>
+        <div class="nav-links">
+            <a href="http://localhost:63342/pythonProject1/songdownload/home.html?_ijt=9kkgbc5hdvnmmurllbu42ifiar&_ij_reload=RELOAD_ON_SAVE#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- Learn More Section -->
+    <div class="learn-more-container">
+        <div class="learn-more-video">
+            <video autoplay loop muted>
+                <source src="https://marketplace.canva.com/EAGJWDkxPvA/1/document_450w/canva-brown-and-white-simple-music-mobile-video-ZIO9V9SEBgs.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="learn-more-content">
+            <h1>About TuneFlow</h1>
+            <p>Welcome to TuneFlow, your ultimate destination for discovering and downloading music effortlessly.</p>
+            <p>Why choose TuneFlow?</p>
+            <ul class="learn-more-list">
+                <li>🎵 Explore millions of songs across genres and languages.</li>
+                <li>🎧 Create personalized playlists with ease.</li>
+                <li>🚀 Enjoy high-quality streaming and downloads.</li>
+                <li>🔍 Get AI-powered recommendations based on your taste.</li>
+                <li>📲 Access music anywhere, anytime on any device.</li>
+            </ul>
+            <a href="index.html" class="learn-more-button">Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>
