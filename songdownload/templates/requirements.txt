@@ -1,0 +1,4 @@
+Flask
+spotdl
+gunicorn
+requests
